@@ -9,6 +9,8 @@ int main(int argc, char *argv[]) {
                 puts("No arguments");
                 return EXIT_FAILURE;
         }
+
+	// Below while loop copies from arg[1] { arg1 == argv[1] } into buff
         while (arg1[i] != '\0'){
                 buff[i] = arg1[i];
                 i++;
