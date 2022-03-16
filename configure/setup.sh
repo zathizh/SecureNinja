@@ -14,7 +14,7 @@ userpath=$(getent passwd 1000 | cut -d":" -f 6)
 sudo su <<EOF
 echo "[+] Updating repodatabase and install necessary packages"
 apt-get update -y
-apt-get install gdb -y
+apt-get install gdb nasm vim fuse open-vm-tools-desktop  -y
 echo "[+] Downloading peda"
 cd /opt && git clone $pedaURL
 echo "[+] Configuring peda"
