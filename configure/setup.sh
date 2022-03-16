@@ -25,7 +25,7 @@ echo "alias g++='g++ -w'" >> $userpath/.bashrc
 echo "[+] Downloading $manVERSION"
 cd /tmp/ && curl -O $manURL && tar xzvf "$manVERSION.tar.gz" && cd $manVERSION && make && cd ../ && rm -rf $manVERSION*
 echo "[+] Clonning labs"
-cd $userpath && git clone https://github.com/zathizh/SecureNinja-SecureCoding && mv SecureNinja-SecureCoding labs
+cd $userpath && git clone https://github.com/zathizh/SecureNinja && mv SecureNinja labs
 echo "[+] Disabling ASLR"
 echo "kernel.randomize_va_space=0" >  /etc/sysctl.d/01-aslr.conf
 sysctl --system
