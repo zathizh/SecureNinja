@@ -12,7 +12,7 @@ _start:
 ; they appear in the corresponding man page
 
 ; ssize_t write(int fd, const void *buf, size_t count)
-; /usr/include/asm-i386/unistd.h
+; /usr/include/i386-linux-gnu/asm/unistd_32.h
 ; #define __NR_write		  4
 
 mov eax, 4
@@ -26,7 +26,7 @@ int 0x80
 ; they appear in the corresponding man page
 
 ; void _exit(int status); 
-; /usr/include/asm-i386/unistd.h
+; /usr/include/i386-linux-gnu/asm/unistd_32.h
 ; #define __NR_exit		  1
 mov eax, 1
 mov ebx, 0
