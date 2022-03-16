@@ -30,6 +30,8 @@ echo "[+] Disabling ASLR"
 echo "kernel.randomize_va_space=0" >  /etc/sysctl.d/01-aslr.conf
 sysctl --system
 echo "[+] Enable core dumps"
+echo >> /etc/security/limits.conf
+echo "Enabling core dumps" >> /etc/security/limits.conf
 echo "* soft core unlimited" >> /etc/security/limits.conf
 reboot
 EOF
