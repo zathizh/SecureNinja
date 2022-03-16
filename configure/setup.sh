@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # https://www.kernel.org/doc/man-pages/download.html
 manVERSION="man-pages-5.13"
@@ -21,9 +21,7 @@ echo "[+] Configuring peda"
 echo "source /opt/peda/peda.py" > $userpath/.gdbinit
 echo "[+] Configure g++ standard to c++11 with suppress warnings"
 echo >> $userpath/.bashrc
-echo "alias g++='g++ -std=c++11 -w'" >> $userpath/.bashrc
-echo >> $userpath/.zshrc
-echo "alias g++='g++ -std=c++11 -w'" >> $userpath/.zshrc
+echo "alias g++='g++ -w'" >> $userpath/.bashrc
 echo "[+] Downloading $manVERSION"
 cd /tmp/ && curl -O $manURL && tar xzvf "$manVERSION.tar.gz" && cd $manVERSION && make && cd ../ && rm -rf $manVERSION*
 echo "[+] Clonning labs"
