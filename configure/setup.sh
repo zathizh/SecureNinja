@@ -29,5 +29,7 @@ cd $userpath && git clone https://github.com/zathizh/SecureNinja && mv SecureNin
 echo "[+] Disabling ASLR"
 echo "kernel.randomize_va_space=0" >  /etc/sysctl.d/01-aslr.conf
 sysctl --system
+echo "[+] Enable core dumps"
+echo "* soft core unlimited" >> /etc/security/limits.conf
 reboot
 EOF
