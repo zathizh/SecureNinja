@@ -6,7 +6,7 @@
 /* These are in no header file, and on some systems they have a _ prepended 
 These symbols have to be typed to keep the compiler happy.
 Also check out brk() and sbrk() for information about heap */
-extern char  __executable_start, _etext, _edata, _end;
+extern char __executable_start, _etext, _edata, __bss_start, _end, DATA_SEGMENT_ALIGN;
 
 static int GLOBAL_INIT = 1; /* data segment, global */
 static int global_uninit; /* BSS segment, global */
@@ -28,7 +28,8 @@ int main(int argc, char **argv) { /* stack, local */
 	printf("TEXT SEGMENT %p\n", &__executable_start);
 	printf("\n");
 
-	printf("DATA SEGMENT\n");
+	printf("DATA SEGMENT");
+	printf(" :    - %p\n", &_edata);
 	printf("  static int GLOBAL_INIT = 1; static int local_static_init = 1;\n");
 	SHOW_INFO ( GLOBAL_INIT );
 	SHOW_INFO ( local_static_init );
@@ -36,7 +37,7 @@ int main(int argc, char **argv) { /* stack, local */
 	printf("\n");
 
 	printf("BSS SEGMENT");
-	printf(" : %p - %p\n", &_edata, &_end);
+	printf(" : %p - %p\n", &__bss_start, &_end);
 	printf("  static int global_uninit; static int local_static_uninit;\n");
 	SHOW_INFO ( global_uninit );
 	SHOW_INFO ( local_static_uninit );
