@@ -8,17 +8,19 @@ extern char __bss_start, _end;
 
 void good_function(const char *);
  
-int main(void) { 
+int main(int argc, char **argv) { 
 	static char buff[BUFFSIZE];
 	static void (*funcPtr)(const char *str); 
-	funcPtr = &good_function; 
+	funcPtr = &good_function;
 
+	// Addintional information 
 	printf("BSS Segment : %p  - %p\n", &__bss_start, &_end);
 	SHOW_INFO ( buff );
 	SHOW_INFO ( funcPtr );
 
-	(void)(*funcPtr)("Hello "); 
-	good_function("World!\n"); 
+
+	strncpy(buff, argv[1], strlen(argv[1]));
+	(void)(*funcPtr)(argv[2]);
 
 	return 0; 
 }
