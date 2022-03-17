@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #define SHOW_INFO( var ) printf( "%10p - %10p  %11d %4uB  "#var"\n", &var, (char*)&var + sizeof(var) - 1 , var, sizeof(var) )
 
