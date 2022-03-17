@@ -6,7 +6,7 @@
 /* These are in no header file, and on some systems they have a _ prepended 
 These symbols have to be typed to keep the compiler happy.
 Also check out brk() and sbrk() for information about heap */
-extern char  etext, edata, end;
+extern char  __executable_start, _etext, _edata, _end;
 
 static int GLOBAL_INIT = 1; /* data segment, global */
 static int global_uninit; /* BSS segment, global */
@@ -16,17 +16,16 @@ void func(int);
 int main(int argc, char **argv) { /* stack, local */
 	int local_init = 1; /* stack, local */
 	int local_uninit; /* stack, local */
-	
 	static int local_static_init = 1; /* data segment, local */
 	static int local_static_uninit; /* BSS segment, local */
 
 	/* storage for buff_ptr is stack, local */
 	/* allocated memory is heap, local */
 	int *buff_ptr = (int *)malloc(32);
-	
+
 	void(*func_ptr)(int) = &func;
 
-	printf("TEXT SEGMENT %p\n", &etext);
+	printf("TEXT SEGMENT %p\n", &__executable_start);
 	printf("\n");
 
 	printf("DATA SEGMENT\n");
@@ -37,7 +36,7 @@ int main(int argc, char **argv) { /* stack, local */
 	printf("\n");
 
 	printf("BSS SEGMENT");
-	printf(" : %p - %p\n", &edata, &end);
+	printf(" : %p - %p\n", &_edata, &_end);
 	printf("  static int global_uninit; static int local_static_uninit;\n");
 	SHOW_INFO ( global_uninit );
 	SHOW_INFO ( local_static_uninit );
@@ -58,7 +57,7 @@ int main(int argc, char **argv) { /* stack, local */
 	SHOW_INFO ( buff_ptr );
         SHOW_INFO ( local_uninit );
         SHOW_INFO ( local_init );
-	
+
 	printf("\n");
 
 	printf("**  Initializing uninitialized variables  **\n");
