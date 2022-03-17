@@ -1,3 +1,6 @@
+# View internal linker-script
+ld --verbose
+
 # View OS memory layout
 cat /proc/self/maps
 
