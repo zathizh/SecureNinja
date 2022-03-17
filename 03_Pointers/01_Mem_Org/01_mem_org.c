@@ -7,15 +7,20 @@ extern char  etext, edata, end;
 static int GLOBAL_INIT = 1; /* data segment, global */
 static int global_uninit; /* BSS segment, global */
 
+void func(int);
+
 int main(int argc, char **argv) { /* stack, local */
 	int local_init = 1; /* stack, local */
 	int local_uninit; /* stack, local */
+	
 	static int local_static_init = 1; /* data segment, local */
 	static int local_static_uninit; /* BSS segment, local */
 
 	/* storage for buff_ptr is stack, local */
 	/* allocated memory is heap, local */
 	int *buff_ptr = (int *)malloc(32);
+	
+	void(*func_ptr)(int) = &func;
 
 	printf("TEXT SEGMENT %p\n", &etext);
 	printf("\n");
@@ -45,9 +50,11 @@ int main(int argc, char **argv) { /* stack, local */
         printf("  char **argv; int argc; int local_uninit; int local_init=1;\n");
         SHOW_INFO ( *argv );
         SHOW_INFO ( argc );
+	SHOW_INFO ( func_ptr );
+	SHOW_INFO ( buff_ptr );
         SHOW_INFO ( local_uninit );
         SHOW_INFO ( local_init );
-
+	
 	printf("\n");
 
 	printf("**  Initializing uninitialized variables  **\n");
@@ -63,4 +70,8 @@ int main(int argc, char **argv) { /* stack, local */
 	SHOW_INFO ( local_static_uninit );
 
 	return 0;
+}
+
+void func(int val){
+        printf("val=%d\n", val);
 }
