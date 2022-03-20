@@ -1,6 +1,9 @@
 # View internal linker-script
 ld --verbose
 
+#list symbols of the object file
+nm <objectfile>
+
 # View OS memory layout
 cat /proc/self/maps
 
