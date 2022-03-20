@@ -6,7 +6,7 @@
 /* These are in no header file, and on some systems they have a _ prepended 
 These symbols have to be typed to keep the compiler happy.
 Also check out brk() and sbrk() for information about heap */
-extern char __executable_start, _etext, _edata, __bss_start, _end, DATA_SEGMENT_ALIGN;
+extern char __executable_start, _etext, _edata, __bss_start, _end;
 
 static int GLOBAL_INIT = 1; /* data segment, global */
 static int global_uninit; /* BSS segment, global */
