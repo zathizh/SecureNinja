@@ -1,3 +1,6 @@
+# View elf information
+readelf -S <prog>
+
 # View internal linker-script
 ld --verbose
 
