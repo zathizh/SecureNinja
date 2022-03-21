@@ -25,8 +25,8 @@ cat /proc/self/maps
 size <progname>
 ```
 
-High Addresses ---> .----------------------.
-                    |      Environment     |
+>High Addresses ---> .----------------------.
+>                    |      Environment     |
                     |----------------------|
                     |                      |   Functions and variable are declared
                     |         STACK        |   on the stack.
