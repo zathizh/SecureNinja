@@ -1,20 +1,18 @@
-# sample.py
+## sample.py
 python ./sample.py
 
-# sample.cpp
+## sample.cpp
 g++ sample.cpp -o sample_cpp
 ./sample_cpp
 
-# sample.c
+## sample.c
 gcc sample.c -o sample_c
 ./sample_c
 
-# sample.asm
+## sample.asm
 nasm -f elf sample.asm
 ld -o sample sample.o 
 ./sample
 
-# sample.php
+## sample.php
 php -f sample.php
-
-
