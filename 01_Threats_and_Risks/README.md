@@ -26,3 +26,9 @@ ld -o sample sample.o
 ```
 php -f sample.php
 ```
+
+### sample.java
+```
+javac sample.java
+java sample
+```
