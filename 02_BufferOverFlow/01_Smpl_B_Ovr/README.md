@@ -1,4 +1,4 @@
-## Compiling the SimpleBuffer.c
+## Compiling SimpleBuffer.c
 
 ```
 gcc  SimpleBuffer.c -o SimpleBuffer 
