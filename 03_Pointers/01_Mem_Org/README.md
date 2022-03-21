@@ -1,18 +1,29 @@
-# View elf information
+## View elf information
+
+```
 readelf -S <prog>
+```
 
-# View internal linker-script
+## View internal linker-script
+
+```
 ld --verbose
+```
 
-#list symbols of the object file
+## List symbols of the object file
+```
 nm <objectfile>
+```
 
-# View OS memory layout
+## View OS memory layout
+```
 cat /proc/self/maps
+```
 
-# Check program memory layout
+## Check program memory layout
+```
 size <progname>
-
+```
 
 High Addresses ---> .----------------------.
                     |      Environment     |
