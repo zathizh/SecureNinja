@@ -1,6 +1,0 @@
-gcc -O2 -D_FORTIFY_SOURCE=0 -fno-stack-protector -z execstack 02_vuln_func_ptr.c -o 02_vuln_func_ptr
-objdump -S 02_vuln_func_ptr
-
- export SHELLCODE=$(perl gen-payload.pl)
- echo $SHELLCODE
- 
