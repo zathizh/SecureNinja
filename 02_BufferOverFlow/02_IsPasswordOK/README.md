@@ -19,5 +19,5 @@ g++ -fno-stack-protector -z execstack IsPasswordOK.cpp -o IsPasswordOK
 ## Overflowing the buffer automatically
 
 ```
-for i in $(seq 1 13); do python -c "print('A'*$i)" | ./IsPasswordOK ; done
+for i in $(seq 1 13); do echo -n $i "" ; python -c "print('A'*$i)" | ./IsPasswordOK ; done
 ```
