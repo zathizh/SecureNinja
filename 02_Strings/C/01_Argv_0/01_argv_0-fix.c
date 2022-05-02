@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
@@ -7,6 +8,7 @@ int main(int argc, char *argv[]) {
     char *prog_name = (char *)malloc(strlen(name)+1);
     if (prog_name != NULL) {
         strcpy(prog_name, name);
+	printf("%s\n", prog_name);
     }
     else {
         /* Couldn't get the memory - recover */
