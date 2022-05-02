@@ -7,7 +7,9 @@ int main(){
 	char buffer[128];
 	printf("Enter ip : ");
 	fgets(addr, sizeof(addr), stdin);
-	sprintf(buffer, "/usr/bin/ping -c2 %s", addr);
+	sprintf(buffer, "/bin/ping -c2 %s", addr);
+
+	printf("%s\n", buffer);
 
 	system(buffer);
 
