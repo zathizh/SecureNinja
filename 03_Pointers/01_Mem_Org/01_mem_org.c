@@ -6,18 +6,27 @@
 /* These are in no header file, and on some systems they have a _ prepended 
 These symbols have to be typed to keep the compiler happy.
 Also check out brk() and sbrk() for information about heap */
+
 extern char _start, __data_start, _edata, __bss_start, _end;
 
-static int GLOBAL_INIT = 1; /* data segment, global */
-static int global_uninit; /* BSS segment, global */
+/* data segment, global */
+static int GLOBAL_INIT = 1; 
+
+/* BSS segment, global */
+static int global_uninit; 
 
 void func(int);
 
 int main(int argc, char **argv) { /* stack, local */
-	int local_init = 1; /* stack, local */
-	int local_uninit; /* stack, local */
-	static int local_static_init = 1; /* data segment, local */
-	static int local_static_uninit; /* BSS segment, local */
+	/* stack, local */
+	int local_init = 1
+	/* stack, local */; 
+	int local_uninit; 
+
+	/* data segment, local */
+	static int local_static_init = 1; 
+	/* BSS segment, local */
+	static int local_static_uninit; 
 
 	/* storage for buff_ptr is stack, local */
 	/* allocated memory is heap, local */
